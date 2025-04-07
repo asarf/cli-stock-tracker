@@ -1,15 +1,17 @@
-# CLI Stock Market Tracker
+# Global Market Pulse: AI-Powered Stock Tracker
 
-A command-line application that provides real-time tracking of global stock market indices with automatic updates and customizable alerts.
+A command-line application that provides real-time tracking of 20 global stock market indices with AI-powered insights, trend analysis, and interactive settings management.
 
 ## Features
 
 - **Live Global Market Data**: Track 20 major indices from North America, Europe, Asia-Pacific, and South America
-- **Real-time Updates**: Automatically refreshes data every minute
+- **Real-time Updates**: Automatically refreshes data at customizable intervals
 - **Customizable Alerts**: Set your own threshold for price change notifications
 - **Clean Visualization**: View market data in a well-formatted table with visual indicators
 - **AI-Powered Insights**: Get predictions, trend analysis, and sentiment analysis using machine learning
 - **Market Summary**: Receive natural language summaries of market conditions
+- **Interactive Settings**: Change configuration options on-the-fly without restarting the application
+- **Color-Coded Interface**: Quickly identify important information with color highlighting
 
 ## Installation
 
@@ -25,6 +27,8 @@ A command-line application that provides real-time tracking of global stock mark
    ```
 
 ## Usage
+
+### Command Line Options
 
 Run the application with default settings:
 ```
@@ -50,6 +54,19 @@ Combine multiple options:
 ```
 python main.py --threshold 2.0 --interval 10 --ai
 ```
+
+### Interactive Settings Menu
+
+While the application is running:
+1. Press `m` at any time to open the settings menu
+2. Use the menu to:
+   - Change alert threshold
+   - Adjust refresh interval
+   - Toggle AI insights on/off
+   - Return to market view
+   - Exit application
+
+All changes take effect immediately without needing to restart the application.
 
 ## Example Output
 
@@ -85,34 +102,51 @@ The application uses the following components:
 - **notifier.py**: Handles alerts when indices change beyond the threshold
 - **utils.py**: Formats and displays data in a table format
 - **ai_analytics.py**: Provides AI-powered market predictions and insights
+- **settings_menu.py**: Manages interactive settings and user preferences
 
 ## AI Features
 
-When run with the `--ai` flag, the application provides several AI-powered features:
+The application provides several AI-powered features:
 
-- **Price Predictions**: Uses machine learning to predict next-day price movements
-- **Trend Analysis**: Employs ARIMA time series forecasting to predict market trends
-- **Sentiment Analysis**: Analyzes recent news headlines to gauge market sentiment
+- **Price Predictions**: Uses machine learning (Linear Regression) to predict next-day price movements with confidence scores
+- **Trend Analysis**: Employs ARIMA time series forecasting to predict market trends over the next few days
+- **Sentiment Analysis**: Analyzes recent news headlines using TextBlob to gauge market sentiment
 - **Market Summary**: Generates natural language summaries of current market conditions
 - **Visual Indicators**: Color-coded insights help quickly identify important information
 
+### AI Implementation Details
+
+- **Machine Learning**: Uses scikit-learn for price prediction models
+- **Time Series Analysis**: Implements statsmodels ARIMA for trend forecasting
+- **Natural Language Processing**: Leverages TextBlob for sentiment analysis of news
+- **Data Processing**: Employs pandas and numpy for efficient data manipulation
+- **Visualization**: Uses colorama for terminal-based color highlighting
+
 ## Dependencies
 
-- yfinance: For fetching stock market data
-- pandas: For data manipulation
-- tabulate: For formatting data into tables
-- APScheduler: For scheduling periodic data updates
-- scikit-learn: For machine learning predictions
-- statsmodels: For time series forecasting
-- textblob: For sentiment analysis of news headlines
-- colorama: For colored terminal output
-- numpy: For numerical operations
-- matplotlib: For data visualization (future features)
+- **Data Acquisition**:
+  - yfinance: For fetching stock market data
+  - pandas: For data manipulation
+
+- **Visualization**:
+  - tabulate: For formatting data into tables
+  - colorama: For colored terminal output
+
+- **System Components**:
+  - APScheduler: For scheduling periodic data updates
+  - numpy: For numerical operations
+
+- **AI and Machine Learning**:
+  - scikit-learn: For machine learning predictions
+  - statsmodels: For time series forecasting
+  - textblob: For sentiment analysis of news headlines
+  - matplotlib: For data visualization (future features)
 
 ## Requirements
 
 - Python 3.6 or higher
 - Internet connection to fetch live market data
+- Terminal that supports ANSI color codes (most modern terminals)
 
 ## License
 
@@ -120,4 +154,12 @@ MIT
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Here are some ways you can contribute:
+
+- Add support for more markets and indices
+- Improve AI prediction accuracy
+- Enhance the user interface
+- Add new features like portfolio tracking
+- Fix bugs and improve performance
+
+Please feel free to submit a Pull Request or open an Issue to discuss potential improvements.
