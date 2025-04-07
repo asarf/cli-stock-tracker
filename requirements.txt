@@ -1,0 +1,10 @@
+yfinance
+pandas
+tabulate
+APScheduler
+scikit-learn
+textblob
+statsmodels
+numpy
+matplotlib
+colorama
